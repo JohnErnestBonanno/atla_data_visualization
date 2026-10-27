@@ -27,4 +27,5 @@ Lessons Learned/Best Practices:
 
 
 To Do:
-* Add 
+* Add Notebook folder for EDA and troubleshooting
+* Create new trees to pull in
