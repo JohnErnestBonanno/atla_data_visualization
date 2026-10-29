@@ -1,3 +1,4 @@
+import os
 import re
 import requests
 import pandas as pd
@@ -33,10 +34,26 @@ def clean(text: str) -> str:
     return text
 
 
-# --- Parse: table rows with a speaker cell and a dialogue cell ---
+# Matches a row that consists solely of "Fade to credits."
+FADE_RE = re.compile(r"^\s*fade to credits\.?\s*$", re.IGNORECASE)
+# Matches a heading that starts with the word "Cast"
+CAST_RE = re.compile(r"^cast\b", re.IGNORECASE)
+
+# --- Parse: walk headings and rows in document order ---
+# Stop when we hit EITHER the "Fade to credits" row OR the "Cast" header.
 rows = []
-for tr in content.find_all("tr"):
-    cells = tr.find_all(["th", "td"], recursive=False)
+for el in content.find_all(["h2", "h3", "tr"]):
+    text = el.get_text(" ", strip=True)
+
+    if (el.name in ("h2", "h3") and CAST_RE.match(text)) or (
+        el.name == "tr" and FADE_RE.match(text)
+    ):
+        break
+
+    if el.name != "tr":
+        continue  # other headings are ignored
+
+    cells = el.find_all(["th", "td"], recursive=False)
     if len(cells) != 2:
         continue  # scene descriptions usually span the whole row
 
@@ -48,4 +65,5 @@ for tr in content.find_all("tr"):
 
 df = pd.DataFrame(rows)
 
-df.to_csv('data/raw/poc.csv')
+os.makedirs("data/raw", exist_ok=True)
+df.to_csv("data/raw/poc.csv", index=False)
