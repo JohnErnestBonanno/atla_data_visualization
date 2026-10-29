@@ -8,6 +8,9 @@ API_URL = "https://avatar.fandom.com/api.php"
 PAGE = "Transcript:The_Boy_in_the_Iceberg"
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
+# "Transcript:The_Boy_in_the_Iceberg" -> "The Boy in the Iceberg"
+EPISODE = PAGE.split(":", 1)[-1].replace("_", " ")
+
 # --- Fetch rendered article HTML via the API ---
 params = {
     "action": "parse",
@@ -61,7 +64,9 @@ for el in content.find_all(["h2", "h3", "tr"]):
     dialogue = clean(cells[1].get_text(" ", strip=True))
 
     if character and dialogue:
-        rows.append({"character": character, "dialogue": dialogue})
+        rows.append(
+            {"episode": EPISODE, "character": character, "dialogue": dialogue}
+        )
 
 df = pd.DataFrame(rows)
 
