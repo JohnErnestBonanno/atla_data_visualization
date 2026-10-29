@@ -8,7 +8,7 @@ import os
 import pandas as pd
 
 RAW_DIR = "data/raw"
-OUT_DIR = "data/processed"
+OUT_DIR = "data/interim"
 OUT_FILE = "all_episodes_word_counts.csv"
 
 # Matches s01e02_the_avatar_returns.csv but NOT all_episodes.csv
