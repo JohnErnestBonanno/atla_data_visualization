@@ -19,6 +19,8 @@ Use of AI:
     * setting up proper request structure with the Avatar Wiki
     * cleaning text via Regular Expressions and removing stage instructions
     * scaling a single episode to the entire series
+    * iterating on data visualizations
+
 
 Findings:
 - TBD
@@ -29,12 +31,13 @@ Future Work:
 Upskill Lessons
 * Proper folder design
     * I focused on using an src structure with extract, transform, and viz to improve reproducability. 
-    * Additionaly, creating a seperate folder for exploratory notebooks kept my work much cleaner.
+    * Creating a seperate folder for exploratory notebooks kept my work much cleaner.
 * UV instead of pip
     * Historically, I've always used pip to install packages in python, but for this project I experimented with uv which is both faster and can handle virtual environments
 * Use PATH's pathlib
     * In using a proper folder structure with src, I needed a more robust way to navigate folders. Pathlib allowed me to move in and out of src's data folders
 * CoCoding w/ AI
     * I personally find it better to ask AI for help on individual parts of code, rather than trying to "one-shot" the entire ask, otherwise, in my opinion, too much of the code gets abstracted away and troubleshooting becomes diffucult. However, I think it is worth it to trade speed for understanding.  
+    * AI is also helpful in tweaking specific paramters within a graph
 
 
