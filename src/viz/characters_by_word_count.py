@@ -10,7 +10,7 @@ ETHNICITY_COLORS = {
     "Water Tribe": "#003399",
     "Fire Nation": "#a90200",
     "Earth Kingdom": "#036634",
-    "Air Nomad": "#ff9900",
+    "Air Nomad": "#ff6600",
     "Kyoshi Islander": "#036634"
 }
 
@@ -52,7 +52,7 @@ def main():
         plot_bgcolor="white",
         paper_bgcolor="white",
         legend_title_text=None,
-        legend=dict(orientation="h", y=1.02, x=0),   # small legend above the bars
+        legend=dict(orientation="h", y=1.04, x=0),   # small legend above the bars
         bargap=0.35,
     )
     
