@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 API_URL = "https://avatar.fandom.com/api.php"
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 INPUT_PATH = "data/processed/all_episodes_word_counts.csv"
-OUTPUT_PATH = "data/processed/ethnicity_mapping.csv"
+OUTPUT_PATH = "data/interim/ethnicity_mapping.csv"
 DELAY_SECONDS = 1  # pause between requests to be polite to the wiki
 TOP_N = None       # e.g. 50 to only look up the 50 most talkative characters
 
