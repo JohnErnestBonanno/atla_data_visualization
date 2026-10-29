@@ -28,7 +28,8 @@ Future Work:
 
 Upskill Lessons
 * Proper folder design
-    * I focused on using an src structure with extract, transform, and viz to improve reproducability
+    * I focused on using an src structure with extract, transform, and viz to improve reproducability. 
+    * Additionaly, creating a seperate folder for exploratory notebooks kept my work much cleaner.
 * UV instead of pip
     * Historically, I've always used pip to install packages in python, but for this project I experimented with uv which is both faster and can handle virtual environments
 * Use PATH's pathlib
